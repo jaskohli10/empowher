@@ -3,6 +3,8 @@ package com.lti.dao;
 import java.util.List;
 
 import com.lti.model.NgoDetails;
+import com.lti.model.TrainingDetails;
+import com.lti.model.TrainingType;
 import com.lti.model.User;
 
 public interface UserDao {
@@ -20,4 +22,13 @@ public interface UserDao {
 	public int modifyNgo(Long ngoRegisterationId, String approvalStatus);
 
 	public NgoDetails readNgoById(Long ngoRegisterationId);
+
+	public List<NgoDetails> readNgoByCity(String city);
+
+	public List<TrainingDetails> readTrainingByNgoName(String organizationName);
+
+	public int createTrainingByNgo(TrainingDetails trainingDetails);
+
+	public List<TrainingType> readTrainingCategory();
+
 }

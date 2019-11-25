@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script type="text/javascript"
+	src="RESOURCES/JS/ngotrainingregistration.js"></script>
 <link rel="stylesheet" href="RESOURCES/CSS/skeleton.css">
 <link rel="stylesheet" type="text/css"
-	href="RESOURCES/CSS/ngoregistration.css" />
-<script type="text/javascript" src="RESOURCES/JS/ngoregistration.js"></script>
-<title>NGO Registration</title>
+	href="RESOURCES/CSS/ngotrainingregistration.css" />
+<title>NGO Training Registration</title>
 </head>
-<body id="thiscss" onload="populateStates()">
+<body id="thiscss" onload="populateTraining()">
 	<div class="header">
 		<div style="text-align: left">
 			<img id="logo" src="RESOURCES/IMAGES/mwcd.jpg" height="110"
@@ -30,6 +31,7 @@
 				<a href="ngoRegistrationPage"> Registration</a> <a
 					href="ngoTrainingRegistrationPage"> Training Registration</a> <a
 					href="ngoHostelRegistrationPage"> Hostel Registration</a>
+
 			</div>
 		</div>
 		<div class="dropdown">
@@ -57,46 +59,31 @@
 
 	</div>
 
-	<h1>NGO Registration Form</h1>
-	<form action="ngoadd.do" method="post">
-		<label>Registration ID </label> 
-		<input type="text" value="" placeholder="Registration ID" id="ngoRegisterationId"
-			name="ngoRegisterationId" /> 
-			
-		<label>NGO Name</label> <input type="text" value="" placeholder="NGO name" id="organizationName"
-			name="organizationName" /> 
-		
-		<label>Owner Name</label> <input
-			type="text" value="" placeholder="Owner Name" id="ownerName"
-			name="ownerName" /> 
-			
-		<label> state </label> 
-		<select name="state" id="state" onchange="populateRespectiveCity()"></select> 
-		
-		<label>City</label> 
-		<select id="city" name="city"> </select> 
-		
-		<label>Address</label> 
-		<input type="text" value="" placeholder="Address" id="address" name="address" /> 
-		
-		<label>Zip Code</label> 
-		<input type="text" value="" placeholder="Address" id="zipCode" name="zipCode" /> 
-		
-		<label>NGO Website</label> 
-		<input type="url" value="" placeholder="Website" id="webSite" name="webSite"> 
-		
-		<label>Staff Number</label> 
-		<input type="text" value="" placeholder="Staff Number" id="staffStrength" name="staffStrength"> 
-		
-		
-		<label>Memorandum of Association</label>	 
-		<input type="text" value="" placeholder="Enter MOA"
-			id="memorandumOfAssociation" name="memorandumOfAssociation">
-			
-		<label>Societies Registration Affidavit</label> 
-		
-		<input type="text" value="" placeholder="Enter SRA" id="societiesRegistrationAffidavit"
-			name="societiesRegistrationAffidavit">
+	<h1>NGO Training Registration Form</h1>
+	<form action="ngoTrainingAdd.do" method="post">
+		<label>NGO REGISTRATION ID</label> <input type="text" value=""
+			placeholder="NGO ID" id="ngoRegisterationId"
+			name="ngoRegisterationId"> <label>NGO Name</label> <input
+			type="text" value="" placeholder="NGO Name" id="organizationName"
+			name="organizationName">
+
+		<h4>
+			<label>List of trainings provided under different training
+				sectors</label>
+		</h4>
+		<select id="trainingcategory" name="trainingcategory"></select> <label>Trainee
+			Capacity</label> <input type="text" value="" placeholder=""
+			id="traineeCapacity" name="traineeCapacity"> <label>Training
+			Start Date</label> <input type="date" value="" id="trainingStartDate"
+			name="trainingStartDate"> <label>Training End Date</label> <input
+			type="date" value="" id="trainingEndDate" name="trainingEndDate">
+		<label>Training Description</label> <input type="text" value=""
+			placeholder="" id="description" name="description"> <label>State</label>
+		<select name="state" id="state" onchange="populateRespectiveCity()">
+		</select> <label>City</label><select id="city" name="city">
+		</select> <label>Address</label> <input type="text" value="" id="address"
+			name="address"> <label>Zipcode</label> <input type="text"
+			value="" id="zipCode" name="zipCode">
 
 		<table>
 			<tr>
@@ -106,6 +93,7 @@
 					style="margin: 30px;"></td>
 			</tr>
 		</table>
+
 	</form>
 	<div class="footer">
 		<h5 class="headerhtags">Website Content Managed by Ministry of

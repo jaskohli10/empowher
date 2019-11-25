@@ -7,10 +7,13 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.lti.model.Admin;
 import com.lti.model.NgoDetails;
+import com.lti.model.TrainingDetails;
+import com.lti.model.TrainingType;
 import com.lti.model.User;
 
 @Repository
@@ -19,6 +22,7 @@ public class UserDaoImpl implements UserDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 	private String jpql;
+	@Autowired
 	private NgoDetails ngoDetails;
 
 	public UserDaoImpl() {
@@ -72,7 +76,7 @@ public class UserDaoImpl implements UserDao {
 		Query query = entityManager.createQuery(jpql);
 		query.setParameter("approvalStatus", approvalStatus);
 		query.setParameter("ngoRegisterationId", ngoRegisterationId);
-		int result=query.executeUpdate();
+		int result = query.executeUpdate();
 		return result;
 	}
 
@@ -80,6 +84,42 @@ public class UserDaoImpl implements UserDao {
 	public NgoDetails readNgoById(Long ngoRegisterationId) {
 		ngoDetails = entityManager.find(NgoDetails.class, ngoRegisterationId);
 		return (ngoDetails != null) ? ngoDetails : null;
+	}
+
+	@Override
+	public List<NgoDetails> readNgoByCity(String city) {
+		jpql = "SELECT ngo FROM NgoDetails ngo WHERE ngo.city =:city";
+		TypedQuery<NgoDetails> typedQuery = entityManager.createQuery(jpql, NgoDetails.class);
+		typedQuery.setParameter("city", city);
+		List<NgoDetails> ngoDetails = typedQuery.getResultList();
+		return (ngoDetails != null) ? ngoDetails : null;
+
+	}
+
+	@Override
+	public List<TrainingDetails> readTrainingByNgoName(String organizationName) {
+		// INNER JOIN OWNER ENTITY IS TrainingDetails and INVERSE ENTITY IS
+		// NgoDetails
+		jpql = "SELECT t FROM TrainingDetails t INNER JOIN t.NgoDetails n WHERE n.organizationName =:organizationName";
+		TypedQuery<TrainingDetails> typedQuery = entityManager.createQuery(jpql, TrainingDetails.class);
+		typedQuery.setParameter("organizationName", organizationName);
+		List<TrainingDetails> trainingDetails = typedQuery.getResultList();
+		return (trainingDetails != null) ? trainingDetails : null;
+	}
+
+	@Override
+	public int createTrainingByNgo(TrainingDetails trainingDetails) {
+		entityManager.persist(trainingDetails);
+		trainingDetails = entityManager.find(TrainingDetails.class, trainingDetails.getTrainingId());
+		return (trainingDetails != null) ? 1 : 0;
+	}
+
+	@Override
+	public List<TrainingType> readTrainingCategory() {
+		jpql = "FROM TrainingType";
+		TypedQuery<TrainingType> typedQuery = entityManager.createQuery(jpql, TrainingType.class);
+		List<TrainingType> trainingTypes = typedQuery.getResultList();
+		return (trainingTypes != null) ? trainingTypes : null;
 	}
 
 }

@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lti.dao.UserDao;
 import com.lti.model.NgoDetails;
+import com.lti.model.TrainingDetails;
+import com.lti.model.TrainingType;
 import com.lti.model.User;
 
 @Service("service")
@@ -87,6 +89,30 @@ public class UserServiceImpl implements UserService {
 		message.setSubject("Test Mail");
 		message.setText("Hi!");
 		mailSender.send(message);
+	}
+
+	@Override
+	public List<NgoDetails> findNgoByCity(String city) {
+		List<NgoDetails> ngoDetails = getDao().readNgoByCity(city);
+		return ngoDetails;
+	}
+
+	@Override
+	public List<TrainingDetails> findTrainingByNgoName(String organizationName) {
+		List<TrainingDetails> trainingDetails = getDao().readTrainingByNgoName(organizationName);
+		return trainingDetails;
+	}
+
+	@Override
+	public boolean registerTrainingByNgo(TrainingDetails trainingDetails) {
+		result = getDao().createTrainingByNgo(trainingDetails);
+		return (result == 1) ? true : false;
+	}
+
+	@Override
+	public List<TrainingType> findTrainingCategory() {
+		List<TrainingType> trainingTypes = getDao().readTrainingCategory();
+		return trainingTypes;
 	}
 
 }

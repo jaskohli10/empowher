@@ -46,8 +46,12 @@
 
 	</table>
 	<form action="updateNgo.do" method="post">
-		<input type="text" name="registrationId" id="registrationId">
-		<input type="text" name="approvalStatus" id="approvalStatus">
+		<!-- <input type="text" name="registrationId" id="registrationId">
+		<input type="text" name="approvalStatus" id="approvalStatus"> -->
+		<select name="approvalStatus" id="approvalStatus">
+			<option>
+		
+		</select>
 		<button type="submit">Update</button>
 	</form>
 

@@ -3,6 +3,8 @@ package com.lti.service;
 import java.util.List;
 
 import com.lti.model.NgoDetails;
+import com.lti.model.TrainingDetails;
+import com.lti.model.TrainingType;
 import com.lti.model.User;
 
 public interface UserService {
@@ -22,4 +24,12 @@ public interface UserService {
 	boolean modifyNgo(Long ngoRegisterationId, String approvalStatus);
 
 	void send(String email);
+
+	public List<NgoDetails> findNgoByCity(String city);
+
+	public List<TrainingDetails> findTrainingByNgoName(String organizationName);
+
+	public boolean registerTrainingByNgo(TrainingDetails trainingDetails);
+
+	public List<TrainingType> findTrainingCategory();
 }

@@ -12,16 +12,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lti.model.NgoDetails;
+import com.lti.model.TrainingDetails;
 import com.lti.model.User;
 import com.lti.service.UserService;
 
 @Controller
 public class NgoController {
 
+	private boolean result = false;
 	@Autowired
 	private User user;
 	@Autowired
 	private UserService service;
+	@Autowired
+	private NgoDetails ngoDetails;
 
 	@RequestMapping(path = "ngoRegistrationPage")
 	public String ngoRegistrationPage() {
@@ -63,6 +67,24 @@ public class NgoController {
 		ngoDetails.setUser(user);
 		service.registerNgo(ngoDetails);
 		return "homepage";
+	}
+
+	@RequestMapping(path = "ngoTrainingRegistrationPage")
+	public String ngoTrainingRegistrationPage() {
+		return "ngotrainingregistration";
+	}
+
+	@RequestMapping(path = "ngoTrainingAdd.do", method = RequestMethod.POST)
+	public String ngoTrainingAdd(TrainingDetails trainingDetails,
+			@RequestParam("ngoRegisterationId") long ngoRegisterationId) {
+		ngoDetails.setNgoRegisterationId(ngoRegisterationId);
+		result = service.registerTrainingByNgo(trainingDetails);
+		return (result) ? "userhome" : "errorpage";
+	}
+
+	@RequestMapping(path = "ngoHostelRegistrationPage")
+	public String ngoHostelRegistrationPage() {
+		return "ngohostelregistration";
 	}
 
 }

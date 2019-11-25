@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="RESOURCES/CSS/skeleton.css">
 <link rel="stylesheet" href="RESOURCES/CSS/homepage.css">
 </head>
 <body>
 	<div class="header">
 		<div style="text-align: left">
-			<img style="float: left; margin: 40px 0px 15px 15px;"
-				src="RESOURCES/IMAGES/mwcd.jpg" height="145" width="160">
+			<img id="logo" src="RESOURCES/IMAGES/mwcd.jpg" height="110"
+				width="110">
 		</div>
-		<h1>MINISTRY OF WOMEN AND CHILD DEVELOPMENT</h1>
+		<h1 class="headerhtags">MINISTRY OF WOMEN AND CHILD DEVELOPMENT</h1>
 		<p>A GOVERNMENT OF INDIA INITIATIVE</p>
 	</div>
 
 	<div class="topnav">
-		<a href="homepage.jsp">HOME</a> <a href="#">STEP</a> <a
-			href="ngoregistration.jsp">NGO</a> <a href="aboutus.jsp">ABOUT US</a>
-		<a href="contactus.jsp">CONTACT US</a> <a href="faqs.jsp">FAQ</a>
+		<a href="homePage">HOME</a> <a href="stepHomePage">STEP</a> <a
+			href="aboutusPage">ABOUT US</a> <a href="contactusPage">CONTACT
+			US</a> <a href="faqsPage">FAQ</a>
 
 		<div class="dropdown" style="float: right">
 			<button class="dropbtn">
@@ -24,8 +25,7 @@
 			</button>
 			<div class="dropdown-content">
 				<a href="viewUserLoginPage">User Login</a> <a
-					href="viewAdminLoginPage">Admin Login</a>
-
+					href="viewAdminLoginPage">Admin Login </a>
 			</div>
 		</div>
 	</div>
@@ -33,13 +33,18 @@
 	<div class="row">
 		<div class="leftcolumn">
 			<div class="card">
-				<h2>STEP</h2>
-				<h3>Support to Training and Employment Programme for Women</h3>
+				<h2>STEP: Support to Training and Employment Programme for
+					Women</h2>
 				<div class="fakeimg" style="height: 400px;">
-					<img src="RESOURCES/IMAGES/HANDLOOM.jpg" height="350" width="850">
+					<img class="mySlides1" src="STEP1.jpg" height="400" width="850">
+					<img class="mySlides2" src="RESOURCES/IMAGES/HANDLOOM.jpg"
+						height="400" width="850"> <img class="mySlides2"
+						src="RESOURCES/IMAGES/STEP2.jpg" height="400" width="850"> <img
+						class="mySlides2" src="RESOURCES/IMAGES/STEP3.jpg" height="400"
+						width="850">
 				</div>
 
-				<h3>About Scheme</h3>
+				<h3>About STEP</h3>
 				<p>The Ministry has been administering "Support to Training and
 					Employment Programme for Women (STEP) Scheme" since 1986-87 as a
 					"Central Sector Scheme". The STEP Scheme aims to provide skills
@@ -52,19 +57,46 @@
 					available in any sector for imparting skills related to
 					employability and entrepreneurship, including but not limited to
 					the Agriculture, Horticulture, Food Processing, Handlooms,
-					Tailoring, Stitching, Embroidery, Zari etc, Handicrafts, Computer
-					and IT enable services along with soft skills and skills for the
-					work place such as spoken English, Gems and Jewellery, Travel and
-					Tourism, Hospitality.</p>
+					Tailoring, Stitching, Embroidery, Zari etc, Handicrafts, Computer &
+					IT enable services along with soft skills and skills for the work
+					place such as spoken English, Gems & Jewellery, Travel & Tourism,
+					Hospitality.</p>
+			</div>
+
+			<div class="card">
+				<h2>Working Womens Hostel</h2>
+
+				<div class="fakeimg" style="height: 400px;">
+					<img class="mySlides1" src="RESOURCES/IMAGES/WWH3.jpg" height="400"
+						width="850"> <img class="mySlides1"
+						src="RESOURCES/IMAGES/WWH1.jpg" height="400" width="850"> <img
+						class="mySlides1" src="RESOURCES/IMAGES/WWH2.jpg" height="400"
+						width="850">
+				</div>
+
+				<h3>About Working Womens Hostel</h3>
+				<p>Provides safe and suitable accommodation to working women.
+					Working women may be single, married, widowed, divorced or
+					separated but whose husband or immediate family does not reside in
+					the same city/area. Preference to women from disadvantaged sections
+					Women undergoing training for a particular course are also entitled
+					to seek hostel accommodation. Provides Day care facility to the
+					children of working mothers. Girls up to the age of 18 years and
+					boys up to the age of 5 years, accompanying working mothers will be
+					provided accommodation, with their mothers. Working Women are
+					entitled to hostel facilities provided their gross income does not
+					exceed Rs. 50,000/- consolidated (gross) per month in metropolitan
+					cities, or Rs 35,000/- consolidated (gross) per month, in any other
+					place.</p>
 			</div>
 			<div class="card">
 				<h2>SUKANYA SAMRUDDHI YOJANA</h2>
 				<div class="fakeimg" style="height: 400px;">
 					<img class="mySlides" src="RESOURCES/IMAGES/SUKANYA1.jpg"
-						height="350" width="850"> <img class="mySlides"
-						src="RESOURCES/IMAGES/SUKANYA2.jpg" height="350" width="850">
+						height="400" width="850"> <img class="mySlides"
+						src="RESOURCES/IMAGES/SUKANYA2.jpg" height="400" width="850">
 					<img class="mySlides" src="RESOURCES/IMAGES/SUKANYA3.jpg"
-						height="350" width="850">
+						height="400" width="850">
 				</div>
 
 				<h3>ABOUT SUKANYA SAMRUDDHI YOJANA</h3>
@@ -83,51 +115,40 @@
 		</div>
 		<div class="rightcolumn">
 			<div class="card">
-				<h2>About US</h2>
-				<div class="fakeimg" style="height: 100px;">Image</div>
-				<p></p>
+				<h4>Our Other Schemes</h4>
+				<div style="height: 200px;">
+					<marquee direction="up">
+						<ol style="type: 1">
+							<li>Beti Bachao Beti Padhao Scheme</li>
+							<li>One Stop Centre Scheme</li>
+							<li>Women Helpline Scheme</li>
+							<li>UJJWALA : A Comprehensive Scheme for Prevention of
+								trafficking and Rescue, Rehabilitation and Re-integration of
+								Victims of Trafficking and Commercial Sexual Exploitation</li>
+							<li>SWADHAR Greh (A Scheme for Women in Difficult
+								Circumstances)</li>
+							<li>NARI SHAKTI PURASKAR</li>
+							<li>Mahila Shakti Kendras (MSK)</li>
+							<li>NIRBHAYA</li>
+							<li>Mahila E-Haat</li>
+						</ol>
+					</marquee>
+				</div>
 			</div>
+
 			<div class="card">
-				<h3>Popular Post</h3>
-				<div class="fakeimg">
-					<p>Image</p>
-				</div>
-				<div class="fakeimg">
-					<p>Image</p>
-				</div>
-				<div class="fakeimg">
-					<p>Image</p>
-				</div>
-			</div>
-			<div class="card">
-				<h3>Follow Me</h3>
-				<p>Some text..</p>
+				<h4>Follow Us</h4>
+				<img src="RESOURCES/IMAGES/Twitter.jpg" height="70" width="70"
+					class="icons"> <img src="RESOURCES/IMAGES/Facebook.jpg"
+					height="70" width="70" class="icons">
 			</div>
 		</div>
 	</div>
-
 	<div class="footer">
-		<p>Website Content Managed by Ministry of Women and Child
+		<h5>Website Content Managed by Ministry of Women and Child
 			Development, GOI Designed, Developed and Hosted by National
-			Informatics Centre( NIC ) Last Updated: 31 May 2019</p>
+			Informatics Centre( NIC ) Last Updated: 31 May 2019</h5>
 	</div>
-	<script>
-		var myIndex = 0;
-		carousel();
-
-		function carousel() {
-			var i;
-			var x = document.getElementsByClassName("mySlides");
-			for (i = 0; i < x.length; i++) {
-				x[i].style.display = "none";
-			}
-			myIndex++;
-			if (myIndex > x.length) {
-				myIndex = 1
-			}
-			x[myIndex - 1].style.display = "block";
-			setTimeout(carousel, 3000); // Change image every 3 seconds
-		}
-	</script>
+	<script type="text/javascript" src="RESOURCES/JS/homepage.js"></script>
 </body>
 </html>

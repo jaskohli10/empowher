@@ -21,9 +21,9 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public String HomePage() {
-		return "homepage";
+	@RequestMapping(path = "viewUserLoginPage")
+	public String userLoginPage() {
+		return "userlogin";
 	}
 
 	@RequestMapping(path = "userLogin.do", method = RequestMethod.POST)
@@ -37,19 +37,6 @@ public class UserController {
 			return "userhome";
 		} else
 			return "homepage";
-	}
-
-	@RequestMapping(path = "logout.do")
-	public String logout(HttpServletRequest request) {
-		session = request.getSession(false);
-		if (session != null)
-			session.invalidate();
-		return "homepage";
-	}
-
-	@RequestMapping(path = "viewUserLoginPage")
-	public String userLoginPage() {
-		return "userlogin";
 	}
 
 	@RequestMapping(path = "viewUserRegistrationPage")

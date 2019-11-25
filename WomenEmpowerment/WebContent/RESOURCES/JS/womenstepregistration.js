@@ -43,3 +43,25 @@ function populateRespectiveCity() {
 		}
 	}
 }
+function populateNgoByCity() {
+	var htmlstring;
+	var city = document.getElementById("city").value;
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'getNgoByCity.do?city=' + city, true);
+	xhr.responseType = 'text';
+	xhr.send();
+	xhr.onload = function() {
+		if (xhr.status == 200) {
+			var ngobycity = JSON.parse(xhr.responseText);
+			if (ngobycity != "") {
+				console.log("hello");
+				for (var i = 0; i < ngobycity.length; i++) {
+					htmlstring += "<option value='"
+							+ ngobycity[i].organizationName + "'>"
+							+ ngobycity[i].organizationName + "</option>"
+				}
+				document.getElementById("ngocity").innerHTML = htmlstring;
+			}
+		}
+	}
+}

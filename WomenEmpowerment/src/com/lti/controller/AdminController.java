@@ -29,6 +29,11 @@ public class AdminController {
 		return "adminlogin";
 	}
 
+	@RequestMapping(path = "viewAdminHomePage")
+	public String viewAdminHomePage() {
+		return "adminhomepage";
+	}
+
 	@RequestMapping(path = "adminlogin.do", method = RequestMethod.POST)
 	public String verifyAdmin(HttpServletRequest request, @RequestParam("username") String username,
 			@RequestParam("password") String password) {

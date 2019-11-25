@@ -1,9 +1,7 @@
 package com.lti.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,31 +16,46 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Component
 @Entity
 @Scope(scopeName = "prototype")
 @Table(name = "ngo_reg_details")
-@SequenceGenerator(name = "ngo_reg_id_seq",sequenceName="ngo_reg_id_seq", initialValue = 10000)
+@SequenceGenerator(name = "ngo_reg_id_seq", sequenceName = "ngo_reg_id_seq", initialValue = 10000)
+@JsonIgnoreProperties(value = { "hostelDetails", "trainingDetails", "user" })
 public class NgoDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ngo_reg_id_seq")
+	@Column(name = "ngo_registration_id")
 	private long ngoRegisterationId;
+
+	@Column(name = "organization_name")
 	private String organizationName;
+
+	@Column(name = "owner_name")
 	private String ownerName;
+
 	private String state;
 	private String city;
 	private int zipCode;
 	private String address;
 	private String webSite;
+
+	@Column(name = "staff_strength")
 	private int staffStrength;
+
+	@Column(name = "memorandum_of_association")
 	private String memorandumOfAssociation;
+
+	@Column(name = "registration_affidavit")
 	private String societiesRegistrationAffidavit;
 
-	@Column(name = "Approvalstatus")
+	@Column(name = "approval_status")
 	private String approvalStatus;
 
-	@OneToMany(mappedBy = "ngo", cascade = CascadeType.ALL)
-	private List<HostelDetails> hostelDetails = new ArrayList<>();
+	@OneToMany(mappedBy = "ngo")
+	private List<HostelDetails> hostelDetails;
 
 	@OneToOne
 	@JoinColumn(name = "username")

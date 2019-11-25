@@ -9,7 +9,6 @@
 <title>User Registration</title>
 </head>
 <body>
-	<div class="logo"></div>
 	<div class="login-block">
 		<h1>User Registration Form</h1>
 		<form action="add.do" method="post">

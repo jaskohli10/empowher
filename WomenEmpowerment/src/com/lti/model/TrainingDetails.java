@@ -2,8 +2,10 @@ package com.lti.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -21,33 +23,55 @@ import org.springframework.stereotype.Component;
 public class TrainingDetails {
 
 	@Id
+	@Column(name = "training_id")
 	private long trainingId;
+
+	@Column(name = "training_name")
 	private String trainingName;
-	private int trainingDurationInMonths;
+
+	@Column(name = "training_description")
+	private String trainingDescription;
+
+	@Column(name = "trainee_capacity")
 	private int traineeCapacity;
+
 	@DateTimeFormat(iso = ISO.DATE)
 	@Temporal(TemporalType.DATE)
+	@Column(name = "trainee_start_date")
 	private Date trainingStartDate;
+
+	@DateTimeFormat(iso = ISO.DATE)
+	@Temporal(TemporalType.DATE)
+	@Column(name = "trainee_end_date")
+	private Date trainingEndDate;
+
 	private String state;
 	private String city;
+
+	@Column(name = "zipcode")
 	private int zipCode;
 	private String address;
 
 	@ManyToOne()
+	@JoinColumn(name = "ngo_registeration_id")
 	private NgoDetails ngoDetails;
+
+	@ManyToOne
+	@JoinColumn(name="training_type_id")
+	private TrainingType trainingType;
 
 	public TrainingDetails() {
 		super();
 	}
 
-	public TrainingDetails(long trainingId, String trainingName, int trainingDurationInMonths, int traineeCapacity,
-			Date trainingStartDate, String state, String city, int zipCode, String address) {
+	public TrainingDetails(long trainingId, String trainingName, int traineeCapacity, Date trainingStartDate,
+			Date trainingEndDate, String state, String city, int zipCode, String address) {
 		super();
 		this.trainingId = trainingId;
 		this.trainingName = trainingName;
-		this.trainingDurationInMonths = trainingDurationInMonths;
 		this.traineeCapacity = traineeCapacity;
 		this.trainingStartDate = trainingStartDate;
+		this.trainingEndDate = trainingEndDate;
 		this.state = state;
 		this.city = city;
 		this.zipCode = zipCode;
@@ -70,14 +94,6 @@ public class TrainingDetails {
 		this.trainingName = trainingName;
 	}
 
-	public int getTrainingDurationInMonths() {
-		return trainingDurationInMonths;
-	}
-
-	public void setTrainingDurationInMonths(int trainingDurationInMonths) {
-		this.trainingDurationInMonths = trainingDurationInMonths;
-	}
-
 	public int getTraineeCapacity() {
 		return traineeCapacity;
 	}
@@ -92,6 +108,14 @@ public class TrainingDetails {
 
 	public void setTrainingStartDate(Date trainingStartDate) {
 		this.trainingStartDate = trainingStartDate;
+	}
+
+	public Date getTrainingEndDate() {
+		return trainingEndDate;
+	}
+
+	public void setTrainingEndDate(Date trainingEndDate) {
+		this.trainingEndDate = trainingEndDate;
 	}
 
 	public String getState() {
@@ -132,6 +156,14 @@ public class TrainingDetails {
 
 	public void setNgoDetails(NgoDetails ngoDetails) {
 		this.ngoDetails = ngoDetails;
+	}
+
+	public TrainingType getTrainingType() {
+		return trainingType;
+	}
+
+	public void setTrainingType(TrainingType trainingType) {
+		this.trainingType = trainingType;
 	}
 
 }

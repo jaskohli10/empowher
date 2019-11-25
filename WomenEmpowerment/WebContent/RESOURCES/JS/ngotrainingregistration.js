@@ -1,4 +1,4 @@
-function populateStates() {
+function populateTraining() {
 	var htmlstring;
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'RESOURCES/JSON/StateCity.json');
@@ -14,6 +14,23 @@ function populateStates() {
 
 				document.getElementById("state").innerHTML = htmlstring;
 			}
+		}
+	}
+	var htmlstring1;
+	var xhr1 = new XMLHttpRequest();
+	xhr1.open('GET', 'getTrainingsCategory', true);
+	xhr1.responseType = 'text';
+	xhr1.send();
+
+	xhr1.onload = function() {
+		if (xhr1.status == 200) {
+			var trainingCategory = JSON.parse(xhr1.responseText);
+			for (var i = 0; i < trainingCategory.length; i++) {
+				htmlstring1 += "<option value = '"
+						+ trainingCategory[i].trainingType + "' >"
+						+ trainingCategory[i].trainingType + "</option>";
+			}
+			document.getElementById("trainingcategory").innerHTML = htmlstring1;
 		}
 	}
 }
