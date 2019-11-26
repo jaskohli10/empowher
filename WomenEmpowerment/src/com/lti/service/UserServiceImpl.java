@@ -13,6 +13,7 @@ import com.lti.model.NgoDetails;
 import com.lti.model.TrainingDetails;
 import com.lti.model.TrainingType;
 import com.lti.model.User;
+import com.lti.model.WomenDetails;
 
 @Service("service")
 public class UserServiceImpl implements UserService {
@@ -104,6 +105,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional
 	public boolean registerTrainingByNgo(TrainingDetails trainingDetails) {
 		result = getDao().createTrainingByNgo(trainingDetails);
 		return (result == 1) ? true : false;
@@ -113,6 +115,31 @@ public class UserServiceImpl implements UserService {
 	public List<TrainingType> findTrainingCategory() {
 		List<TrainingType> trainingTypes = getDao().readTrainingCategory();
 		return trainingTypes;
+	}
+
+	@Override
+	public long findNgoRegistrationIdByUsername(String username) {
+		ngoDetails = getDao().readNgoRegistrationIdByUsername(username);
+		return ngoDetails.getNgoRegisterationId();
+	}
+
+	@Override
+	public String findNgoNameByUsername(String username) {
+		ngoDetails = getDao().readNgoNameByUsername(username);
+		return ngoDetails.getOrganizationName();
+	}
+
+	@Override
+	public List<TrainingDetails> findAllListedTraining() {
+		List<TrainingDetails> tlist = getDao().readAllTraining();
+		return tlist;
+	}
+
+	@Override
+	@Transactional
+	public boolean registerWomenStep(WomenDetails womenDetails) {
+		result = getDao().createWomenStep(womenDetails);
+		return (result == 1) ? true : false;
 	}
 
 }

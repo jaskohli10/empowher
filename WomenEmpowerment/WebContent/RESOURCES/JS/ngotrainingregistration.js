@@ -60,3 +60,24 @@ function populateRespectiveCity() {
 		}
 	}
 }
+function settrainingcategoryID() {
+	var htmlstring;
+	var trainingType = document.getElementById("trainingcategory");
+	var trainingTypeData = trainingType.options[trainingType.selectedIndex].value;
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', 'getTrainingsCategory', true);
+	xhr.responseType = 'text';
+	xhr.send();
+
+	xhr.onload = function() {
+		if (xhr.status == 200) {
+			var trainingCategory = JSON.parse(xhr.responseText);
+			for (var i = 0; i < trainingCategory.length; i++) {
+				if (trainingCategory[i].trainingType == trainingTypeData) {
+					htmlstring = trainingCategory[i].trainingTypeId;
+				}
+			}
+			document.getElementById("trainingcategoryID").value = htmlstring;
+		}
+	}
+}

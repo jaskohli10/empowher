@@ -4,6 +4,9 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.lti.model.NgoDetails;
 import com.lti.model.TrainingDetails;
+import com.lti.model.TrainingType;
 import com.lti.model.User;
 import com.lti.service.UserService;
 
@@ -25,7 +29,11 @@ public class NgoController {
 	@Autowired
 	private UserService service;
 	@Autowired
+	private TrainingType trainingType;
+	@Autowired
 	private NgoDetails ngoDetails;
+
+	HttpSession session;
 
 	@RequestMapping(path = "ngoRegistrationPage")
 	public String ngoRegistrationPage() {
@@ -45,7 +53,7 @@ public class NgoController {
 				byte[] bytes = file.getBytes();
 
 				// Creating the directory to store file
-				String rootPath = "D:/EmpowherMaster/WomenEmpowerment/WebContent/WEB-INF";
+				String rootPath = System.getProperty("catalina.home");
 				File dir = new File(rootPath + File.separator + "FILESUPLOADED");
 				if (!dir.exists())
 					dir.mkdirs();
@@ -70,14 +78,28 @@ public class NgoController {
 	}
 
 	@RequestMapping(path = "ngoTrainingRegistrationPage")
-	public String ngoTrainingRegistrationPage() {
+	public String ngoTrainingRegistrationPage(HttpServletRequest request) {
+		session = request.getSession(false);
+		String username = (String) session.getAttribute("username");
+		long ngoRegisterationId = service.findNgoRegistrationIdByUsername(username);
+
+		String organizationName = service.findNgoNameByUsername(username);
+		session.setAttribute("ngoRegisterationId", ngoRegisterationId);
+		session.setAttribute("organizationName", organizationName);
 		return "ngotrainingregistration";
 	}
 
 	@RequestMapping(path = "ngoTrainingAdd.do", method = RequestMethod.POST)
 	public String ngoTrainingAdd(TrainingDetails trainingDetails,
+			@RequestParam("trainingcategoryID") String trainingcategoryID,
 			@RequestParam("ngoRegisterationId") long ngoRegisterationId) {
+
+		trainingType.setTrainingTypeId(trainingcategoryID);
+		trainingDetails.setTrainingType(trainingType);
+
 		ngoDetails.setNgoRegisterationId(ngoRegisterationId);
+		trainingDetails.setNgoDetails(ngoDetails);
+
 		result = service.registerTrainingByNgo(trainingDetails);
 		return (result) ? "userhome" : "errorpage";
 	}

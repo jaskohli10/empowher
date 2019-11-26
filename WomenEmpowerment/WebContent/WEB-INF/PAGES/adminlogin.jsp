@@ -17,7 +17,34 @@
 		<h1 class="headerhtags">MINISTRY OF WOMEN AND CHILD DEVELOPMENT</h1>
 		<p>A GOVERNMENT OF INDIA INITIATIVE</p>
 	</div>
+	<div class="topnav">
+		<a href="homePage">HOME</a>
+		<a href="stepHomePage">STEP</a>
+		
+		<a href="aboutusPage">ABOUT US</a>
+		<a href="contactusPage">CONTACT US</a>
+		<a href="faqsPage">FAQ</a>
 
+
+
+
+
+		<div class="dropdown" style="float: right">
+			<button class="dropbtn">
+				LOGIN
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="viewUserLoginPage">User Login</a>
+				<a href="viewAdminLoginPage">Admin Login
+				</a>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="card">
 	<div class="login-block">
 		<h1>Login</h1>
 		<form action="adminlogin.do" method="post">
@@ -26,6 +53,7 @@
 				placeholder="Password" id="password" name="password" />
 			<button type="submit">Login</button>
 		</form>
+	</div>
 	</div>
 	<div class="footer">
 		<h5 class="headerhtags">Website Content Managed by Ministry of

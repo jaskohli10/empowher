@@ -15,6 +15,7 @@ import com.lti.model.NgoDetails;
 import com.lti.model.TrainingDetails;
 import com.lti.model.TrainingType;
 import com.lti.model.User;
+import com.lti.model.WomenDetails;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -100,7 +101,7 @@ public class UserDaoImpl implements UserDao {
 	public List<TrainingDetails> readTrainingByNgoName(String organizationName) {
 		// INNER JOIN OWNER ENTITY IS TrainingDetails and INVERSE ENTITY IS
 		// NgoDetails
-		jpql = "SELECT t FROM TrainingDetails t INNER JOIN t.NgoDetails n WHERE n.organizationName =:organizationName";
+		jpql = "SELECT t FROM TrainingDetails t INNER JOIN t.ngoDetails n WHERE n.organizationName =:organizationName";
 		TypedQuery<TrainingDetails> typedQuery = entityManager.createQuery(jpql, TrainingDetails.class);
 		typedQuery.setParameter("organizationName", organizationName);
 		List<TrainingDetails> trainingDetails = typedQuery.getResultList();
@@ -120,6 +121,40 @@ public class UserDaoImpl implements UserDao {
 		TypedQuery<TrainingType> typedQuery = entityManager.createQuery(jpql, TrainingType.class);
 		List<TrainingType> trainingTypes = typedQuery.getResultList();
 		return (trainingTypes != null) ? trainingTypes : null;
+	}
+
+	@Override
+	public NgoDetails readNgoRegistrationIdByUsername(String username) {
+		jpql = "SELECT ngo From NgoDetails ngo INNER JOIN ngo.user u WHERE u.userName =:username";
+		TypedQuery<NgoDetails> typedQuery = entityManager.createQuery(jpql, NgoDetails.class);
+		typedQuery.setParameter("username", username);
+		ngoDetails = typedQuery.getSingleResult();
+
+		return ngoDetails;
+	}
+
+	@Override
+	public NgoDetails readNgoNameByUsername(String username) {
+		jpql = "SELECT ngo From NgoDetails ngo INNER JOIN ngo.user u WHERE u.userName =:username";
+		TypedQuery<NgoDetails> typedQuery = entityManager.createQuery(jpql, NgoDetails.class);
+		typedQuery.setParameter("username", username);
+		ngoDetails = typedQuery.getSingleResult();
+		return ngoDetails;
+	}
+
+	@Override
+	public List<TrainingDetails> readAllTraining() {
+		String jpql = "From TrainingDetails";
+		TypedQuery<TrainingDetails> tquery = entityManager.createQuery(jpql, TrainingDetails.class);
+		List<TrainingDetails> tlist = tquery.getResultList();
+		return tlist;
+	}
+
+	@Override
+	public int createWomenStep(WomenDetails womenDetails) {
+		entityManager.persist(womenDetails);
+		womenDetails = entityManager.find(WomenDetails.class, womenDetails.getWomenRegistrationId());
+		return (womenDetails != null) ? 1 : 0;
 	}
 
 }

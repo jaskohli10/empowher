@@ -6,6 +6,7 @@ import com.lti.model.NgoDetails;
 import com.lti.model.TrainingDetails;
 import com.lti.model.TrainingType;
 import com.lti.model.User;
+import com.lti.model.WomenDetails;
 
 public interface UserDao {
 
@@ -30,5 +31,13 @@ public interface UserDao {
 	public int createTrainingByNgo(TrainingDetails trainingDetails);
 
 	public List<TrainingType> readTrainingCategory();
+
+	public NgoDetails readNgoRegistrationIdByUsername(String username);
+
+	public NgoDetails readNgoNameByUsername(String username);
+
+	public List<TrainingDetails> readAllTraining();
+
+	public int createWomenStep(WomenDetails womenDetails);
 
 }

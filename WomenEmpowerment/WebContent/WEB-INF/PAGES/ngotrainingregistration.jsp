@@ -61,28 +61,49 @@
 
 	<h1>NGO Training Registration Form</h1>
 	<form action="ngoTrainingAdd.do" method="post">
-		<label>NGO REGISTRATION ID</label> <input type="text" value=""
-			placeholder="NGO ID" id="ngoRegisterationId"
-			name="ngoRegisterationId"> <label>NGO Name</label> <input
-			type="text" value="" placeholder="NGO Name" id="organizationName"
-			name="organizationName">
+		<label>NGO REGISTRATION ID</label> <input type="text" 
+			 id="ngoRegisterationId"
+			name="ngoRegisterationId" value="${ngoRegisterationId}" readonly="readonly"> <label>NGO Name</label>
+		<input type="text" 
+			id="organizationName" name="organizationName"
+			value="${organizationName}" readonly="readonly">
 
 		<h4>
 			<label>List of trainings provided under different training
 				sectors</label>
 		</h4>
-		<select id="trainingcategory" name="trainingcategory"></select> <label>Trainee
-			Capacity</label> <input type="text" value="" placeholder=""
-			id="traineeCapacity" name="traineeCapacity"> <label>Training
+		<select id="trainingcategory" name="trainingcategory" onchange="settrainingcategoryID()"></select>
+
+		<input type="text" style="display: none" name="trainingcategoryID" id="trainingcategoryID">
+		<label>Training Name</label> 
+		 <input type="text" value="" placeholder="" id="trainingName" name="trainingName"> 
+		 
+				
+		
+		 <label>Trainee Capacity</label> 
+		 <input type="text" value="" placeholder="" id="traineeCapacity" name="traineeCapacity"> <label>Training
 			Start Date</label> <input type="date" value="" id="trainingStartDate"
-			name="trainingStartDate"> <label>Training End Date</label> <input
+			name="trainingStartDate"> 
+		
+		<label>Training End Date</label> 
+		<input
 			type="date" value="" id="trainingEndDate" name="trainingEndDate">
+			
 		<label>Training Description</label> <input type="text" value=""
-			placeholder="" id="description" name="description"> <label>State</label>
+			placeholder="" id="trainingDescription" name="trainingDescription"> 
+			
+		<label>State</label>
 		<select name="state" id="state" onchange="populateRespectiveCity()">
-		</select> <label>City</label><select id="city" name="city">
-		</select> <label>Address</label> <input type="text" value="" id="address"
-			name="address"> <label>Zipcode</label> <input type="text"
+		</select> 
+		
+		<label>City</label>
+		<select id="city" name="city">
+		</select> 
+		
+		<label>Address</label> <input type="text" value="" id="address"
+			name="address"> 
+			
+		<label>Zipcode</label> <input type="text"
 			value="" id="zipCode" name="zipCode">
 
 		<table>

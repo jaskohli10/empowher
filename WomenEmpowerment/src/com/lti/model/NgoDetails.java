@@ -64,6 +64,9 @@ public class NgoDetails {
 	@OneToMany(mappedBy = "ngoDetails")
 	private List<TrainingDetails> trainingDetails;
 
+	@OneToMany(mappedBy = "ngoDetails")
+	private List<WomenDetails> womenDetails;
+
 	public NgoDetails() {
 		super();
 	}
@@ -204,6 +207,15 @@ public class NgoDetails {
 
 	public void setTrainingDetails(List<TrainingDetails> trainingDetails) {
 		this.trainingDetails = trainingDetails;
+	}
+
+	@Override
+	public String toString() {
+		return "NgoDetails [ngoRegisterationId=" + ngoRegisterationId + ", organizationName=" + organizationName
+				+ ", ownerName=" + ownerName + ", state=" + state + ", city=" + city + ", zipCode=" + zipCode
+				+ ", address=" + address + ", webSite=" + webSite + ", staffStrength=" + staffStrength
+				+ ", memorandumOfAssociation=" + memorandumOfAssociation + ", societiesRegistrationAffidavit="
+				+ societiesRegistrationAffidavit + ", approvalStatus=" + approvalStatus + "]";
 	}
 
 }

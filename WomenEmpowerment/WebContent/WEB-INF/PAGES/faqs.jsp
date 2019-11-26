@@ -16,11 +16,18 @@
 
 	<div class="topnav">
 		<a href="homePage">HOME</a> <a href="stepHomePage">STEP</a> <a
-			href="ngoHomePage">NGO</a> <a href="aboutusPage">ABOUT US</a> <a
-			href="contactusPage">CONTACT US</a> <a href="faqsPage">FAQ</a>
+			href="aboutusPage">ABOUT US</a> <a href="contactusPage">CONTACT
+			US</a> <a href="faqsPage">FAQ</a>
 
-		<div style="float: right">
-			<a href="">LOGOUT</a>
+		<div class="dropdown" style="float: right">
+			<button class="dropbtn">
+				LOGIN
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="viewUserLoginPage">User Login</a>
+				<a href="viewAdminLoginPage">Admin Login</a>
+			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -38,9 +45,9 @@
 				will be available in any sector for imparting skills related to
 				employability and entrepreneurship, including but not limited to the
 				Agriculture, Horticulture, Food Processing, Handlooms, Tailoring,
-				Stitching, Embroidery, Zari etc, Handicrafts, Computer & IT enable
+				Stitching, Embroidery, Zari etc, Handicrafts, Computer and IT enable
 				services along with soft skills and skills for the work place such
-				as spoken English, Gems & Jewellery, Travel & Tourism, Hospitality.<br>
+				as spoken English, Gems and Jewellery, Travel and Tourism, Hospitality.<br>
 				<br> <b>4. Which are the Eligible Organisations/Project
 					Implementing Agencies?</b><br> Grants-in-aid under the STEP
 				programme may be given to an institution having a distinct legal

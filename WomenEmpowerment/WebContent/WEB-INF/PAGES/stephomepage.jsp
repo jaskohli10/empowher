@@ -2,8 +2,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="RESOURCES/CSS/skeleton.css">
-<link rel="stylesheet" type="text/css"
-	href="RESOURCES/CSS/stephomepage.css" />
 </head>
 <body>
 	<div class="header">
@@ -19,10 +17,19 @@
 		<a href="homePage">HOME</a> <a href="stepGuidelinePage">STEP
 			GUIDELINES </a>
 
+		<div class="dropdown" style="float: right">
+			<button class="dropbtn">
+				LOGIN <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="viewUserLoginPage">User Login</a> <a
+					href="viewAdminLoginPage">Admin Login</a>
+			</div>
+		</div>
 	</div>
-	<div class="row">
+	<div class="card">
 		<div class="card">
-			<h2 class="iamcenter">Welcome USER</h2>
+
 			<h2>STEP: Support to Training and Employment Programme for Women</h2>
 			<div class="fakeimg" style="height: 400px;">
 				<img src="RESOURCES/IMAGES/HANDLOOM.jpg" height="400" width="1163">
@@ -41,9 +48,9 @@
 				skills related to employability and entrepreneurship, including but
 				not limited to the Agriculture, Horticulture, Food Processing,
 				Handlooms, Tailoring, Stitching, Embroidery, Zari etc, Handicrafts,
-				Computer & IT enable services along with soft skills and skills for
-				the work place such as spoken English, Gems & Jewellery, Travel &
-				Tourism, Hospitality.</p>
+				Computer and IT enable services along with soft skills and skills
+				for the work place such as spoken English, Gems and Jewellery,
+				Travel and Tourism, Hospitality.</p>
 		</div>
 		<div class="card">
 			<h2>SUKANYA SAMRUDDHI YOJANA</h2>

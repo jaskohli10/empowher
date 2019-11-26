@@ -24,7 +24,6 @@
 				<a href="ngoRegistrationPage"> Registration</a> <a
 					href="ngoTrainingRegistrationPage"> Training Registration</a> <a
 					href="ngoHostelRegistrationPage"> Hostel Registration</a>
-
 			</div>
 		</div>
 		<div class="dropdown">

@@ -6,6 +6,7 @@ import com.lti.model.NgoDetails;
 import com.lti.model.TrainingDetails;
 import com.lti.model.TrainingType;
 import com.lti.model.User;
+import com.lti.model.WomenDetails;
 
 public interface UserService {
 
@@ -32,4 +33,12 @@ public interface UserService {
 	public boolean registerTrainingByNgo(TrainingDetails trainingDetails);
 
 	public List<TrainingType> findTrainingCategory();
+
+	public long findNgoRegistrationIdByUsername(String username);
+
+	public String findNgoNameByUsername(String username);
+
+	public List<TrainingDetails> findAllListedTraining();
+
+	public boolean registerWomenStep(WomenDetails womenDetails);
 }

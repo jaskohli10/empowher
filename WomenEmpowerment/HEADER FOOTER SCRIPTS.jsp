@@ -20,6 +20,7 @@ CSS - 			RESOURCES/CSS/
 </div>
 
 <!-- HEADER'S NAVIGATOR BAR  (change as per need!) -->
+
 <div class="topnav">
 	<a href="">HOME</a> <a href="stepHomePage">STEP</a> <a
 		href="ngohomepage">NGO</a> <a href="aboutusPage">ABOUT US</a> <a
@@ -35,6 +36,43 @@ CSS - 			RESOURCES/CSS/
 		</div>
 	</div>
 </div>
+
+<!-- HEADER'S NAVIGATOR BAR  (change as per need!) FOR USERHOME-->
+	<div class="topnav">
+		<a href="homePage">HOME</a>
+		<div class="dropdown">
+			<button class="dropbtn">
+				NGO <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="ngoRegistrationPage"> Registration</a> <a
+					href="ngoTrainingRegistrationPage"> Training Registration</a> <a
+					href="ngoHostelRegistrationPage"> Hostel Registration</a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">
+				STEP <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="womenStepRegistrationPage">Training Registration</a> <a
+					href="viewListedTraining.do">Listed Trainings </a>
+			</div>
+		</div>
+		<div class="dropdown">
+			<button class="dropbtn">
+				WOMEN HOSTEL<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="womenHostelRegistrationPage">Hostel DayNcare
+					Registration </a> <a href="viewListedHostels.do">View Hostel</a>
+			</div>
+		</div>
+
+		<div style="float: right">
+			<a href="logout.do">LOGOUT</a>
+		</div>
+	</div>
 
 
 <!-- FOOTER -->

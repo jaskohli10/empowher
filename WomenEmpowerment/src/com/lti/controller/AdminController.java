@@ -43,7 +43,7 @@ public class AdminController {
 			session.setAttribute("adminUser", username);
 			return "adminhomepage";
 		} else
-			return "errorpage";
+			return "adminlogin";
 	}
 
 	@RequestMapping(path = "viewNgos.do")

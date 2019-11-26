@@ -21,6 +21,11 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
+	@RequestMapping(path = "viewUserRegistrationPage")
+	public String addUserPage() {
+		return "userregistration";
+	}
+
 	@RequestMapping(path = "viewUserLoginPage")
 	public String userLoginPage() {
 		return "userlogin";
@@ -36,12 +41,7 @@ public class UserController {
 			session.setAttribute("username", username);
 			return "userhome";
 		} else
-			return "homepage";
-	}
-
-	@RequestMapping(path = "viewUserRegistrationPage")
-	public String addUserPage() {
-		return "userregistration";
+			return "userlogin";
 	}
 
 	@RequestMapping(path = "add.do", method = RequestMethod.POST)

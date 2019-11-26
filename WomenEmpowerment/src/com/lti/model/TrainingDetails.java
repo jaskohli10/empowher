@@ -1,12 +1,17 @@
 package com.lti.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,13 +21,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "training_details")
 @Component
 @Scope(scopeName = "prototype")
+@SequenceGenerator(name = "training_seq", sequenceName = "training_seq", initialValue = 1)
+@JsonIgnoreProperties(value = { "ngoDetails" })
 public class TrainingDetails {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "training_seq")
 	@Column(name = "training_id")
 	private long trainingId;
 
@@ -37,12 +47,12 @@ public class TrainingDetails {
 
 	@DateTimeFormat(iso = ISO.DATE)
 	@Temporal(TemporalType.DATE)
-	@Column(name = "trainee_start_date")
+	@Column(name = "training_start_date")
 	private Date trainingStartDate;
 
 	@DateTimeFormat(iso = ISO.DATE)
 	@Temporal(TemporalType.DATE)
-	@Column(name = "trainee_end_date")
+	@Column(name = "training_end_date")
 	private Date trainingEndDate;
 
 	private String state;
@@ -53,12 +63,15 @@ public class TrainingDetails {
 	private String address;
 
 	@ManyToOne()
-	@JoinColumn(name = "ngo_registeration_id")
+	@JoinColumn(name = "ngo_registration_id")
 	private NgoDetails ngoDetails;
 
 	@ManyToOne
-	@JoinColumn(name="training_type_id")
+	@JoinColumn(name = "training_type_id")
 	private TrainingType trainingType;
+
+	@OneToMany(mappedBy = "trainingDetails")
+	private List<WomenDetails> womenDetails;
 
 	public TrainingDetails() {
 		super();
@@ -164,6 +177,14 @@ public class TrainingDetails {
 
 	public void setTrainingType(TrainingType trainingType) {
 		this.trainingType = trainingType;
+	}
+
+	public String getTrainingDescription() {
+		return trainingDescription;
+	}
+
+	public void setTrainingDescription(String trainingDescription) {
+		this.trainingDescription = trainingDescription;
 	}
 
 }

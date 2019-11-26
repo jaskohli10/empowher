@@ -58,45 +58,30 @@
 	</div>
 
 	<h1>NGO Registration Form</h1>
-	<form action="ngoadd.do" method="post">
-		<label>Registration ID </label> 
-		<input type="text" value="" placeholder="Registration ID" id="ngoRegisterationId"
-			name="ngoRegisterationId" /> 
-			
-		<label>NGO Name</label> <input type="text" value="" placeholder="NGO name" id="organizationName"
-			name="organizationName" /> 
-		
-		<label>Owner Name</label> <input
+	<form action="ngoadd.do" method="POST" action="uploadMultipleFile"
+		enctype="multipart/form-data">
+
+
+		<label>Username:</label> <input type="text" name="username"
+			value="${username}" readonly /> <label>NGO Name</label> <input
+			type="text" value="" placeholder="NGO name" id="organizationName"
+			name="organizationName" /> <label>Owner Name</label> <input
 			type="text" value="" placeholder="Owner Name" id="ownerName"
-			name="ownerName" /> 
-			
-		<label> state </label> 
-		<select name="state" id="state" onchange="populateRespectiveCity()"></select> 
-		
-		<label>City</label> 
-		<select id="city" name="city"> </select> 
-		
-		<label>Address</label> 
-		<input type="text" value="" placeholder="Address" id="address" name="address" /> 
-		
-		<label>Zip Code</label> 
-		<input type="text" value="" placeholder="Address" id="zipCode" name="zipCode" /> 
-		
-		<label>NGO Website</label> 
-		<input type="url" value="" placeholder="Website" id="webSite" name="webSite"> 
-		
-		<label>Staff Number</label> 
-		<input type="text" value="" placeholder="Staff Number" id="staffStrength" name="staffStrength"> 
-		
-		
-		<label>Memorandum of Association</label>	 
-		<input type="text" value="" placeholder="Enter MOA"
-			id="memorandumOfAssociation" name="memorandumOfAssociation">
-			
-		<label>Societies Registration Affidavit</label> 
-		
-		<input type="text" value="" placeholder="Enter SRA" id="societiesRegistrationAffidavit"
-			name="societiesRegistrationAffidavit">
+			name="ownerName" /> <label> state </label> <select name="state"
+			id="state" onchange="populateRespectiveCity()"></select> <label>City</label>
+		<select id="city" name="city">
+		</select> <label>Address</label> <input type="text" value=""
+			placeholder="Address" id="address" name="address" /> <label>Zip
+			Code</label> <input type="number" value="" placeholder="Address" id="zipCode"
+			name="zipCode" /> <label>NGO Website</label> <input type="url"
+			value="" placeholder="Website" id="webSite" name="webSite"> <label>Staff
+			Number</label> <input type="number" value="" placeholder="Staff Number"
+			id="staffStrength" name="staffStrength"> <label>Memorandum
+			of Association</label> <input type="file" name="file"> <label>Enter
+			document name</label> <input type="text" name="name"> <label>Societies
+			Registration Affidavit</label> <input type="file" name="file"> <label>Enter
+			document name</label> <input type="text" name="name">
+
 
 		<table>
 			<tr>

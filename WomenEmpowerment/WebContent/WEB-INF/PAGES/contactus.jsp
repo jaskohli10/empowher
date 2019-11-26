@@ -16,11 +16,17 @@
 
 	<div class="topnav">
 		<a href="homePage">HOME</a> <a href="stepHomePage">STEP</a> <a
-			href="ngoHomePage">NGO</a> <a href="aboutusPage">ABOUT US</a> <a
-			href="contactusPage">CONTACT US</a> <a href="faqsPage">FAQ</a>
+			href="aboutusPage">ABOUT US</a> <a href="contactusPage">CONTACT
+			US</a> <a href="faqsPage">FAQ</a>
 
-		<div style="float: right">
-			<a href="">LOGOUT</a>
+		<div class="dropdown" style="float: right">
+			<button class="dropbtn">
+				LOGIN <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="viewUserLoginPage">User Login</a> <a
+					href="viewAdminLoginPage">Admin Login</a>
+			</div>
 		</div>
 	</div>
 

@@ -20,7 +20,7 @@ public class WomenRestController {
 	private UserService service;
 
 	// testing purpose
-	@RequestMapping(value = "getNgos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "getNgos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<NgoDetails> ngo() {
 		List<NgoDetails> ngoDetails = service.findAllNgos();
 		return ngoDetails;
@@ -32,10 +32,10 @@ public class WomenRestController {
 		return ngoDetails;
 	}
 
-	@RequestMapping(path = "getTrainingByNgoName", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "getTrainingByNgoName.do", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<TrainingDetails> trainingByNgoName(@RequestParam("organizationName") String organizationName) {
 		List<TrainingDetails> trainingDetails = service.findTrainingByNgoName(organizationName);
 		return trainingDetails;
 	}
-	
+
 }

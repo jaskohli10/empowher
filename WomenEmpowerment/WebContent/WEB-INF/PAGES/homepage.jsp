@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="RESOURCES/CSS/homepage.css">
 </head>
 <body>
+
 	<div class="header">
 		<div style="text-align: left">
 			<img id="logo" src="RESOURCES/IMAGES/mwcd.jpg" height="110"
@@ -25,7 +26,7 @@
 			</button>
 			<div class="dropdown-content">
 				<a href="viewUserLoginPage">User Login</a> <a
-					href="viewAdminLoginPage">Admin Login </a>
+					href="viewAdminLoginPage">Admin Login</a>
 			</div>
 		</div>
 	</div>
@@ -35,13 +36,15 @@
 			<div class="card">
 				<h2>STEP: Support to Training and Employment Programme for
 					Women</h2>
-				<div class="fakeimg" style="height: 400px;">
-					<img class="mySlides1" src="STEP1.jpg" height="400" width="850">
-					<img class="mySlides2" src="RESOURCES/IMAGES/HANDLOOM.jpg"
-						height="400" width="850"> <img class="mySlides2"
-						src="RESOURCES/IMAGES/STEP2.jpg" height="400" width="850"> <img
-						class="mySlides2" src="RESOURCES/IMAGES/STEP3.jpg" height="400"
-						width="850">
+
+				<div style="height: 400px" class="fakeimg">
+					<img class="mySlides" src="RESOURCES/IMAGES/STEP1.jpg" height="400"
+						width="850"> <img class="mySlides"
+						src="RESOURCES/IMAGES/HANDLOOM.jpg" height="400" width="850">
+					<img class="mySlides" src="RESOURCES/IMAGES/STEP2.jpg" height="400"
+						width="850"> <img class="mySlides"
+						src="RESOURCES/IMAGES/STEP3.jpg" height="400" width="850">
+
 				</div>
 
 				<h3>About STEP</h3>
@@ -57,20 +60,21 @@
 					available in any sector for imparting skills related to
 					employability and entrepreneurship, including but not limited to
 					the Agriculture, Horticulture, Food Processing, Handlooms,
-					Tailoring, Stitching, Embroidery, Zari etc, Handicrafts, Computer &
-					IT enable services along with soft skills and skills for the work
-					place such as spoken English, Gems & Jewellery, Travel & Tourism,
-					Hospitality.</p>
+					Tailoring, Stitching, Embroidery, Zari etc, Handicrafts, Computer
+					and IT enable services along with soft skills and skills for the
+					work place such as spoken English, Gems and Jewellery, Travel and
+					Tourism, Hospitality.</p>
+
 			</div>
 
 			<div class="card">
 				<h2>Working Womens Hostel</h2>
 
-				<div class="fakeimg" style="height: 400px;">
-					<img class="mySlides1" src="RESOURCES/IMAGES/WWH3.jpg" height="400"
-						width="850"> <img class="mySlides1"
+				<div class="fakeimg" style="height: 400px">
+					<img class="mySlides2" src="RESOURCES/IMAGES/WWH3.jpg" height="400"
+						width="850"> <img class="mySlides2"
 						src="RESOURCES/IMAGES/WWH1.jpg" height="400" width="850"> <img
-						class="mySlides1" src="RESOURCES/IMAGES/WWH2.jpg" height="400"
+						class="mySlides2" src="RESOURCES/IMAGES/WWH2.jpg" height="400"
 						width="850">
 				</div>
 
@@ -89,13 +93,14 @@
 					cities, or Rs 35,000/- consolidated (gross) per month, in any other
 					place.</p>
 			</div>
+
 			<div class="card">
 				<h2>SUKANYA SAMRUDDHI YOJANA</h2>
-				<div class="fakeimg" style="height: 400px;">
-					<img class="mySlides" src="RESOURCES/IMAGES/SUKANYA1.jpg"
-						height="400" width="850"> <img class="mySlides"
+				<div class="fakeimg" style="height: 400px">
+					<img class="mySlides3" src="RESOURCES/IMAGES/SUKANYA1.jpg"
+						height="400" width="850"> <img class="mySlides3"
 						src="RESOURCES/IMAGES/SUKANYA2.jpg" height="400" width="850">
-					<img class="mySlides" src="RESOURCES/IMAGES/SUKANYA3.jpg"
+					<img class="mySlides3" src="RESOURCES/IMAGES/SUKANYA3.jpg"
 						height="400" width="850">
 				</div>
 
@@ -108,15 +113,16 @@
 					which can be opened in post offices and designated private and
 					public banks in the form of a savings account in the name of the
 					baby girl. The interest rate is declared quarterly just like other
-					post office schemes. The interest rate for Jan-Marâ€™19 (Q4, FY
+					post office schemes. The interest rate for Jan-Mar’19 (Q4, FY
 					2018-19) was 8.5%.It is regarded as one of the most high-paying
 					investment options in the fixed income segment.</p>
 			</div>
 		</div>
+
 		<div class="rightcolumn">
 			<div class="card">
 				<h4>Our Other Schemes</h4>
-				<div style="height: 200px;">
+				<div style="height: 50%">
 					<marquee direction="up">
 						<ol style="type: 1">
 							<li>Beti Bachao Beti Padhao Scheme</li>
@@ -134,21 +140,27 @@
 						</ol>
 					</marquee>
 				</div>
+
 			</div>
 
 			<div class="card">
 				<h4>Follow Us</h4>
-				<img src="RESOURCES/IMAGES/Twitter.jpg" height="70" width="70"
-					class="icons"> <img src="RESOURCES/IMAGES/Facebook.jpg"
-					height="70" width="70" class="icons">
+				<a
+					href="https://twitter.com/MinistryWCD?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><img
+					src="RESOURCES/IMAGES/Twitter.jpg" height="70" width="70"
+					style="margin: 30px"></a> <a
+					href="https://www.facebook.com/ministryWCD/"><img
+					src="RESOURCES/IMAGES/Facebook.jpg" height="70" width="70"
+					style="margin: 30px"></a>
 			</div>
 		</div>
 	</div>
+
 	<div class="footer">
 		<h5>Website Content Managed by Ministry of Women and Child
 			Development, GOI Designed, Developed and Hosted by National
 			Informatics Centre( NIC ) Last Updated: 31 May 2019</h5>
 	</div>
-	<script type="text/javascript" src="RESOURCES/JS/homepage.js"></script>
+	<script src="RESOURCES/JS/homepage.js"></script>
 </body>
 </html>

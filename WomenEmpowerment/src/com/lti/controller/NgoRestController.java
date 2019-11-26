@@ -17,7 +17,7 @@ public class NgoRestController {
 	@Autowired
 	private UserService service;
 
-	@RequestMapping(value = "getTrainingsCategory", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "getTrainingsCategory", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<TrainingType> getTrainingsCategory() {
 		List<TrainingType> trainingTypes = service.findTrainingCategory();
 		return trainingTypes;
