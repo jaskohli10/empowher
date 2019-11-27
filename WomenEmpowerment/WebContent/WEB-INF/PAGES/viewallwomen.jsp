@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="RESOURCES/CSS/skeleton.css">
-<title>Registered NGO's</title>
+<title>Registered Women Under STEP</title>
 </head>
 <body>
 	<div class="header">
@@ -29,41 +29,39 @@
 		<table border='1'>
 			<tr>
 				<th>Registration ID</th>
-				<th>Organisation Name</th>
-				<th>Owner Name</th>
+				<th>Marital Status</th>
+				<th>Caste</th>
+				<th>Category</th>
 				<th>State</th>
 				<th>City</th>
-				<th>Zip code</th>
 				<th>Address</th>
-				<th>Website</th>
-				<th>Staff Strength</th>
-				<th>Memorandum Of Association</th>
-				<th>Societies Registration Affidavit</th>
+				<th>Zipcode</th>
+				<th>Aadhar Card</th>
+				<th>Pan Card</th>
+				<th>Emergency Contact Number</th>
 				<th>Approval Status</th>
 			</tr>
-			<c:forEach var="ngo" items="${requestScope.ngoList}">
+			<c:forEach var="women" items="${requestScope.womenList}">
 				<tr>
-					<td><c:out value="${ngo.ngoRegisterationId}" /></td>
-					<td><c:out value="${ngo.organizationName}" /></td>
-					<td><c:out value="${ngo.ownerName}" /></td>
-					<td><c:out value="${ngo.state}" /></td>
-					<td><c:out value="${ngo.city}" /></td>
-					<td><c:out value="${ngo.zipCode}" /></td>
-					<td><c:out value="${ngo.address}" /></td>
-					<td><c:url value="${ngo.webSite}" var="ngoWebsite" /> <a
-						href="${ngoWebsite}"><c:out value="${ngoWebsite}" /></a></td>
-					<td><c:out value="${ngo.staffStrength}" /></td>
-					<td><c:url value="${ngo.memorandumOfAssociation}"
-							var="memorandum" /> <a href="FILESUPLOADED/${memorandum}.pdf"><c:out
-								value="${memorandum}" /></a></td>
-					<td><c:url value="${ngo.societiesRegistrationAffidavit}"
-							var="sra" /> <a href="FILESUPLOADED/${sra}.pdf"><c:out
-								value="${sra}" /></a></td>
-					<td><c:out value="${ngo.approvalStatus}" /></td>
+					<td><c:out value="${women.womenRegistrationId}" /></td>
+					<td><c:out value="${women.maritalStatus}" /></td>
+					<td><c:out value="${women.caste}" /></td>
+					<td><c:out value="${women.category}" /></td>
+					<td><c:out value="${women.state}" /></td>
+					<td><c:out value="${women.city}" /></td>
+					<td><c:out value="${women.address}" /></td>
+					<td><c:out value="${women.zipcode}" /></td>
+					<td><c:url value="${women.aadhaarcard}" var="aadharcard" /> <a
+						href="FILESUPLOADED/${aadharcard}.pdf"><c:out
+								value="${aadharcard}" /></a></td>
+					<td><c:url value="${women.pancard}" var="pancard" /> <a
+						href="FILESUPLOADED/${pancard}.pdf"><c:out value="${pancard}" /></a></td>
+
+					<td><c:out value="${women.emergencyContactNo}" /></td>
+					<td><c:out value="${women.approvalStatus}" /></td>
 			</c:forEach>
 		</table>
-
-		<form action="updateNgo.do" method="post">
+		<form action="updateWoman.do" method="post">
 			<input type="text" name="registrationId" id="registrationId">
 			<!-- <input type="text" name="registrationId" id="registrationId">
 		<input type="text" name="approvalStatus" id="approvalStatus"> -->

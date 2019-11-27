@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" errorPage="errorpage.jsp"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,8 +17,8 @@
 		<h1 class="headerhtags">MINISTRY OF WOMEN AND CHILD DEVELOPMENT</h1>
 		<p>A GOVERNMENT OF INDIA INITIATIVE</p>
 	</div>
-		<div class="topnav">
-		<a href="homePage">HOME</a>
+	<div class="topnav">
+		<a href="viewUserHomePage">HOME</a>
 		<div class="dropdown">
 			<button class="dropbtn">
 				NGO <i class="fa fa-caret-down"></i>

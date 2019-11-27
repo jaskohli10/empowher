@@ -8,11 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lti.model.NgoDetails;
+import com.lti.model.WomenDetails;
 import com.lti.service.UserService;
 
 @Controller
@@ -67,7 +69,36 @@ public class AdminController {
 
 			return "redirect:viewNgos.do";
 		else
-			return "error";
+			return "errorpage";
 	}
 
+	@RequestMapping(path = "viewWomenRegistered.do")
+	public String viewWomenRegistered(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if (session != null) {
+			session.getAttribute("adminUser");
+
+			List<WomenDetails> list = service.findAllWomen();
+			model.addAttribute("womenList", list);
+			return "viewallwomen";
+		} else
+			return "homepage";
+
+	}
+
+	@RequestMapping(path = "updateWoman.do", method = RequestMethod.POST)
+	public String updateWoman(@RequestParam("registrationId") long womenRegistrationId,
+			@RequestParam("approvalStatus") String approvalStatus) {
+		result = service.modifyWomen(womenRegistrationId, approvalStatus);
+		if (result)
+
+			return "redirect:viewWomenRegistered.do";
+		else
+			return "errorpage";
+	}
+
+	@ExceptionHandler({Exception.class})
+	public String handleException(){
+		return "errorpage";
+	}
 }

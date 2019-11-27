@@ -157,4 +157,24 @@ public class UserDaoImpl implements UserDao {
 		return (womenDetails != null) ? 1 : 0;
 	}
 
+	@Override
+	public List<WomenDetails> readAllWomen() {
+		String jpql = "From WomenDetails";
+		TypedQuery<WomenDetails> tquery = entityManager.createQuery(jpql, WomenDetails.class);
+		List<WomenDetails> list = tquery.getResultList();
+		return list;
+		
+	}
+
+	@Override
+	public int modifyWomen(Long womenRegistrationId, String approvalStatus) {
+		String jpql = "UPDATE WomenDetails wom SET wom.approvalStatus =:approvalStatus WHERE wom.womenRegistrationId =:womenRegistrationId";
+		Query query = entityManager.createQuery(jpql);
+		query.setParameter("approvalStatus", approvalStatus);
+		query.setParameter("womenRegistrationId", womenRegistrationId);
+		int result = query.executeUpdate();
+		return result;
+		
+	}
+
 }

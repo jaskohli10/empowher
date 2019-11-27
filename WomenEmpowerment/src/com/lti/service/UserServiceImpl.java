@@ -142,4 +142,18 @@ public class UserServiceImpl implements UserService {
 		return (result == 1) ? true : false;
 	}
 
+	@Override
+	public List<WomenDetails> findAllWomen() {
+		List<WomenDetails> list = getDao().readAllWomen();
+		return list;
+	}
+
+	@Override
+	@Transactional
+	public boolean modifyWomen(Long womenRegistrationId, String approvalStatus) {
+		result = getDao().modifyWomen(womenRegistrationId, approvalStatus);
+		return (result == 1) ? true : false;
+		
+	}
+
 }

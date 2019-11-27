@@ -41,4 +41,8 @@ public interface UserService {
 	public List<TrainingDetails> findAllListedTraining();
 
 	public boolean registerWomenStep(WomenDetails womenDetails);
+	
+	public List<WomenDetails> findAllWomen();
+	
+	boolean modifyWomen(Long womenRegistrationId, String approvalStatus);
 }

@@ -1,6 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" errorPage="errorpage.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="RESOURCES/CSS/skeleton.css">
 <title>Admin Home</title>
 </head>
@@ -16,6 +19,7 @@
 	<div class="topnav">
 		<a href="viewAdminHomePage">HOME</a> <a href="#">STEP</a> <a
 			href="viewNgos.do">NGO</a>
+			<a href="viewWomenRegistered.do">View Registered Women</a>
 
 		<div style="float: right">
 			<a href="logout.do">LOGOUT</a>

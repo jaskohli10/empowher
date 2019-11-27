@@ -1,6 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" errorPage="errorpage.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="RESOURCES/CSS/skeleton.css">
 <link rel="stylesheet" href="RESOURCES/CSS/userhome.css">
 </head>
@@ -15,7 +18,7 @@
 	</div>
 
 	<div class="topnav">
-		<a href="homePage">HOME</a>
+		<a href="viewUserHomePage">HOME</a>
 		<div class="dropdown">
 			<button class="dropbtn">
 				NGO <i class="fa fa-caret-down"></i>

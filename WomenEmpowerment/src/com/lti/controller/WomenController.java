@@ -52,7 +52,6 @@ public class WomenController {
 			for (TrainingDetails trainingDetails : tlist) {
 				System.out.println(trainingDetails);
 			}
-			System.out.println(tlist);
 			model.addAttribute("training", tlist);
 			return "alllistedtrainings";
 		} else

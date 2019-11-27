@@ -21,6 +21,11 @@ public class UserController {
 	@Autowired
 	private UserService service;
 
+	@RequestMapping(path = "viewUserHomePage")
+	public String userHomePage() {
+		return "userhome";
+	}
+
 	@RequestMapping(path = "viewUserRegistrationPage")
 	public String addUserPage() {
 		return "userregistration";

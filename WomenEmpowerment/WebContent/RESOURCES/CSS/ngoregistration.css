@@ -64,7 +64,7 @@ input, select {
 	font-size: 90%;
 }
 
-input[type="submit"] {
+input[type="button"] {
 	width: 150px;
 	font-size: 110%;
 	font-weight: 100;
@@ -76,7 +76,7 @@ input[type="submit"] {
 	cursor: pointer;
 }
 
-input[type="submit"]:hover {
+input[type="button"]:hover {
 	background: #ac3b61;
 }
 
@@ -95,6 +95,7 @@ input[type="reset"] {
 input[type="reset"]:hover {
 	background: #ac3b61;
 }
+
 .dropdown {
 	float: left;
 	overflow: hidden;
@@ -112,8 +113,8 @@ input[type="reset"]:hover {
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: #ddd;
-    color: black;
+	background-color: #ddd;
+	color: black;
 }
 
 .dropdown-content {
@@ -141,6 +142,3 @@ input[type="reset"]:hover {
 .dropdown:hover .dropdown-content {
 	display: block;
 }
-
-
-

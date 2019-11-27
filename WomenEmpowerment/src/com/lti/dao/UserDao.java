@@ -39,5 +39,9 @@ public interface UserDao {
 	public List<TrainingDetails> readAllTraining();
 
 	public int createWomenStep(WomenDetails womenDetails);
+	
+	public List<WomenDetails> readAllWomen();
+	
+	public int modifyWomen(Long womenRegistrationId, String approvalStatus);
 
 }

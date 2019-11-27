@@ -43,3 +43,82 @@ function populateRespectiveCity() {
 		}
 	}
 }
+function printError(elemId, hintMsg) {
+	document.getElementById(elemId).innerHTML = hintMsg;
+}
+
+function ngoRegistrationValidate() {
+	var organizationName = document.getElementById("organizationName").value;
+	var ownerName = document.getElementById("ownerName").value;
+	var address = document.getElementById("address").value;
+	var staffno = document.getElementById("staffStrength").value;
+	var moa = document.getElementById("moa").value;
+	var sra = document.getElementById("sra").value;
+
+	var errorOrganizationName = true;
+	var errorOwnerName = true;
+	var errorAddress = true;
+	var errorStaffno = true;
+	var errorMoa = true;
+	var errorSra = true;
+
+	if (organizationName == '') {
+		printError("error-organizationName",
+				"Organisation name cannot be blank");
+
+	} else {
+		var regex = /^[a-zA-Z\s]+$/;
+		if (regex.test(organizationName) === false) {
+			printError("error-organizationName",
+					"Enter a valid organisation name");
+
+		} else {
+			printError("error-organizationName", "");
+			errorOrganizationName = false;
+		}
+
+	}
+
+	if (ownerName == '') {
+		printError("error-ownerName", "Owner name cannot be blank")
+
+	} else {
+		var regex = /^[a-zA-Z\s]+$/;
+		if (regex.test(ownerName) === false) {
+			printError("error-ownerName", "Owner name cannot have digits");
+		} else {
+			printError("error-ownerName", "");
+			errorOwnerName = false;
+		}
+	}
+
+	if (address == '') {
+		printError("error-address", "Address cannot be blank");
+	} else {
+		var regex = /^\d{10}$/;
+		if (regex.test(address) === false) {
+			printError("error-address",
+					"Address cannot be less than 10 characters");
+		} else {
+			printError("error-address", "");
+			errorAddress = false;
+
+		}
+	}
+
+	if (staffno == '') {
+		printError("error-staffno", "Staff Number cannot be blank");
+	} else {
+		var regex = /^[1-1000\s]+$/;
+		if (regex.test(staffno) === false) {
+			printError("error-staffno", "Staff Number cannot be characters");
+		} else {
+			printError("error-staffno", "");
+			errorStaffno = false;
+		}
+	}
+	if (!errorOrganizationName && !errorOwnerName && !errorAddress
+			&& !errorStaffno && !errorMoa && !errorSra) {
+		document.getElementById("myForm").submit();
+	}
+}

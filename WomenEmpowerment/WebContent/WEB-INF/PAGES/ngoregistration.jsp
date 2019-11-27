@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" errorPage="errorpage.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="RESOURCES/CSS/skeleton.css">
 <link rel="stylesheet" type="text/css"
 	href="RESOURCES/CSS/ngoregistration.css" />
@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="topnav">
-		<a href="homePage">HOME</a>
+		<a href="viewUserHomePage">HOME</a>
 		<div class="dropdown">
 			<button class="dropbtn">
 				NGO <i class="fa fa-caret-down"></i>
@@ -43,7 +43,7 @@
 		</div>
 		<div class="dropdown">
 			<button class="dropbtn">
-				WOMEN HOSTEL<i class="fa fa-caret-down"></i>
+				WOMEN HOSTEL <i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
 				<a href="womenHostelRegistrationPage">Hostel DayNcare
@@ -59,33 +59,47 @@
 
 	<h1>NGO Registration Form</h1>
 	<form action="ngoadd.do" method="POST" action="uploadMultipleFile"
-		enctype="multipart/form-data">
+		enctype="multipart/form-data" id="myForm">
 
 
 		<label>Username:</label> <input type="text" name="username"
 			value="${username}" readonly /> <label>NGO Name</label> <input
 			type="text" value="" placeholder="NGO name" id="organizationName"
-			name="organizationName" /> <label>Owner Name</label> <input
-			type="text" value="" placeholder="Owner Name" id="ownerName"
-			name="ownerName" /> <label> state </label> <select name="state"
-			id="state" onchange="populateRespectiveCity()"></select> <label>City</label>
-		<select id="city" name="city">
+			name="organizationName" />
+		<p id="error-organizationName" name="error-organizationName"></p>
+
+
+		<label>Owner Name</label> <input type="text" value=""
+			placeholder="Owner Name" id="ownerName" name="ownerName" />
+		<p id="error-ownerName" name="error-ownerName"></p>
+
+		<label> state </label> <select name="state" id="state"
+			onchange="populateRespectiveCity()"></select> <label>City</label> <select
+			id="city" name="city">
 		</select> <label>Address</label> <input type="text" value=""
-			placeholder="Address" id="address" name="address" /> <label>Zip
-			Code</label> <input type="number" value="" placeholder="Address" id="zipCode"
-			name="zipCode" /> <label>NGO Website</label> <input type="url"
-			value="" placeholder="Website" id="webSite" name="webSite"> <label>Staff
-			Number</label> <input type="number" value="" placeholder="Staff Number"
-			id="staffStrength" name="staffStrength"> <label>Memorandum
-			of Association</label> <input type="file" name="file"> <label>Enter
-			document name</label> <input type="text" name="name"> <label>Societies
+			placeholder="Address" id="address" name="address" />
+		<p id="error-address" name="error-address"></p>
+
+
+		<label>Zip Code </label> <input type="number" value=""
+			placeholder="Address" id="zipCode" name="zipCode" /> <label>NGO
+			Website</label> <input type="url" value="" placeholder="Website" id="webSite"
+			name="webSite" /> <label>Staff Number </label> <input type="number"
+			value="" placeholder="Staff Number" id="staffStrength"
+			name="staffStrength">
+		<p id="error-staffno" name="error-staffno"></p>
+
+		<label>Memorandum of Association</label> <input type="file"
+			name="file"> <label>Enter document name</label> <input
+			type="text" name="name" id="moa"> <label>Societies
 			Registration Affidavit</label> <input type="file" name="file"> <label>Enter
-			document name</label> <input type="text" name="name">
+			document name</label> <input type="text" name="name" id="sra">
 
 
 		<table>
 			<tr>
-				<td><input type="submit" value="Submit" id="submit"
+				<td><input type="button" value="Submit"
+					onclick="ngoRegistrationValidate()" id="submit"
 					style="margin: 30px;"></td>
 				<td><input type="reset" value="Reset" id="reset"
 					style="margin: 30px;"></td>
@@ -98,4 +112,5 @@
 			National Informatics Centre( NIC ) Last Updated: 31 May 2019</h5>
 	</div>
 </body>
+
 </html>

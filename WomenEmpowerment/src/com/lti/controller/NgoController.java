@@ -53,7 +53,7 @@ public class NgoController {
 				byte[] bytes = file.getBytes();
 
 				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
+				String rootPath = "D:/";
 				File dir = new File(rootPath + File.separator + "FILESUPLOADED");
 				if (!dir.exists())
 					dir.mkdirs();
